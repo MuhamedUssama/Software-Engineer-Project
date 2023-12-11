@@ -1,10 +1,16 @@
 class PopularModel {
-  PopularModel({
-    this.page,
-    this.results,
-    this.totalPages,
-    this.totalResults,
-  });
+  int? page;
+  List<PopularMovies>? results;
+  int? totalPages;
+  int? totalResults;
+  String? message;
+
+  PopularModel(
+      {this.page,
+      this.results,
+      this.totalPages,
+      this.totalResults,
+      this.message});
 
   PopularModel.fromJson(dynamic json) {
     page = json['page'];
@@ -16,11 +22,8 @@ class PopularModel {
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
+    message = json['status_message'];
   }
-  int? page;
-  List<PopularMovies>? results;
-  int? totalPages;
-  int? totalResults;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
